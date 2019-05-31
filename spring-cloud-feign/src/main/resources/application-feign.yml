@@ -1,0 +1,42 @@
+spring:
+  application:
+    name: feign-consumer
+server:
+  port: 9001
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:5555/eureka/
+
+#默认的客户端调用超时时间
+#ribbon:
+#  connectTimeOut: 500
+#  readTimeOut: 5000
+
+#指定服务配置
+hello-service:
+  ribbon:
+    connectTimeOut: 500
+    readTimeOut: 2000
+    okToRetryOnAllOperations: true
+    #会尝试两次更换实例进行重试
+    maxAutoRetriesNextServer: 2
+    #重试策略先尝试访问首选实例一次，失败后才更换实例访问
+    maxAutoRetries: 1
+
+#Hystrix设置全局的超时时间
+#hystrix:
+#  command:
+#    default:
+#      execution:
+#        timeOut:
+#          #为false时关闭熔断功能
+#          enabled: true
+#        isolation:
+#          thread:
+#            timeOutInMilliseconds: 5000
+
+#为false时关闭hystrix功能
+feign:
+  hystrix:
+    enabled: true
