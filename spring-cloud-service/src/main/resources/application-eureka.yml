@@ -1,8 +1,9 @@
-
+#指定服务注册中心地址
 eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:5555/eureka/
+#为服务命名
 spring:
   application:
     name: hello-service

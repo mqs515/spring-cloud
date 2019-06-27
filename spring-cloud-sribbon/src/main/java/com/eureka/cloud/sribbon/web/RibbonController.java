@@ -1,6 +1,7 @@
 package com.eureka.cloud.sribbon.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
@@ -17,7 +18,7 @@ public class RibbonController {
     @Autowired
     private RestTemplate restTemplate;
 
-    @RequestMapping("/consumer")
+    @GetMapping("/consumer")
     public String consumer(){
         return restTemplate.getForEntity("http://hello-service/hello/index", String.class).getBody();
     }
