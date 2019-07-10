@@ -11,17 +11,17 @@ import org.springframework.web.bind.annotation.RequestParam;
 /**
  * @Author Mqs
  * @Date 2018/11/19 22:09
- *        TODO 注解的configuration属性用来指定Hystrix的配置
- *        , configuration = DisableHystrixConfiguration.class
- * @Desc  TODO 注解的fallback属性用来指定对应大的服务降级实现类
+ * TODO 注解的configuration属性用来指定Hystrix的配置
+ * , configuration = DisableHystrixConfiguration.class
+ * @Desc TODO 注解的fallback属性用来指定对应大的服务降级实现类
  */
 
-@FeignClient(name = "hello-service", fallback = HelloServiceFallback.class, configuration = FullLogConfiguration.class)// TODO 启动时会报错 hello-service  和  RefactorHelloService 中的一样，一个修改一下就可以测试了
+@FeignClient(name = "hello-service", fallback = HelloServiceFallback.class, configuration = FullLogConfiguration.class)
+// TODO 启动时会报错 hello-service  和  RefactorHelloService 中的一样，一个修改一下就可以测试了
 public interface HelloService {
     /**
-     * @FeignClient通过注解指定服务名绑定服务
-     *
      * @return
+     * @FeignClient通过注解指定服务名绑定服务
      */
     @RequestMapping("/hello/index")
     String hello();

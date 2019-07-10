@@ -19,7 +19,7 @@ public class RibbonController {
     private RestTemplate restTemplate;
 
     @GetMapping("/consumer")
-    public String consumer(){
+    public String consumer() {
         return restTemplate.getForEntity("http://hello-service/hello/index", String.class).getBody();
     }
 }

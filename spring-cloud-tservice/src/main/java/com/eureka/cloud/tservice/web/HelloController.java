@@ -23,7 +23,7 @@ public class HelloController {
     private DiscoveryClient client;
 
     @RequestMapping("/index")
-    public String index(){
+    public String index() {
         List<String> services = client.getServices();
         services.forEach(s -> {
             List<ServiceInstance> instances = client.getInstances(s);
@@ -40,12 +40,12 @@ public class HelloController {
      */
 
     @RequestMapping("/hello1")
-    public String hello(@RequestParam String name){
+    public String hello(@RequestParam String name) {
         return "HELLO TWO" + name;
     }
 
     @RequestMapping("/hello2")
-    public User hello(@RequestHeader String name, @RequestHeader Integer age){
+    public User hello(@RequestHeader String name, @RequestHeader Integer age) {
         User user = new User();
         user.setAge(age);
         user.setName("Hello Two" + name);
@@ -53,7 +53,7 @@ public class HelloController {
     }
 
     @RequestMapping("/hello3")
-    public String hello(@RequestBody User user){
+    public String hello(@RequestBody User user) {
         return "HELLO Two " + user.getName() + "  " + user.getAge();
     }
 

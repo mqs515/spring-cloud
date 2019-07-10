@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping("/refactor")
 public interface HelloService {
     /**
-     *
      * @param name
      * @return
      */
@@ -22,7 +21,6 @@ public interface HelloService {
     String hello(@RequestParam("name") String name);
 
     /**
-     *
      * @param name
      * @param age
      * @return
@@ -31,7 +29,6 @@ public interface HelloService {
     User hello(@RequestHeader("name") String name, @RequestHeader("age") Integer age);
 
     /**
-     *
      * @param user
      * @return
      */

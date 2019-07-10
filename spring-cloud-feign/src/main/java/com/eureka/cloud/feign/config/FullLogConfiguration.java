@@ -13,7 +13,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class FullLogConfiguration {
     @Bean
-    Logger.Level feignLoggerLevel(){
+    Logger.Level feignLoggerLevel() {
         return Logger.Level.FULL;
     }
 }

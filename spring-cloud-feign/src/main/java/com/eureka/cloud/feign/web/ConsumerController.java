@@ -13,11 +13,17 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/feign")
 public class ConsumerController {
+
     @Autowired
     private HelloService helloService;
 
+    /**
+     * 可以做到类似ribbon负载均衡
+     *
+     * @return
+     */
     @RequestMapping("/consumer")
-    public String helloController(){
+    public String helloController() {
         return helloService.hello();
     }
 
@@ -27,20 +33,20 @@ public class ConsumerController {
      */
 
     @RequestMapping("/consumer1")
-    public String helloOne(){
-        return helloService.hello("HEYAO");
+    public String helloOne() {
+        return helloService.hello("HEYAO +  consumer1");
     }
 
     @RequestMapping("/consumer2")
-    public String helloTwo(){
-        return helloService.hello("HEYAO", 30).toString();
+    public String helloTwo() {
+        return helloService.hello("HEYAO +  consumer2", 30).toString();
     }
 
     @RequestMapping("/consumer3")
-    public String helloThree(){
+    public String helloThree() {
         User user = new User();
         user.setAge(30);
-        user.setName("HEYAO");
+        user.setName("HEYAO +  consumer3");
         return helloService.hello(user);
     }
 }

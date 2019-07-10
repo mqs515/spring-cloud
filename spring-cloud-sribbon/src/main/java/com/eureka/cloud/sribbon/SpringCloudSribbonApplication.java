@@ -10,8 +10,7 @@ import org.springframework.web.client.RestTemplate;
 /**
  * @author Mqs
  * @date 2018/11/15 21:54
- * @desc
- *
+ * @desc TODO 测试的时候启动 sribbon  service  tservice server 这四个服务
  * @EnableDiscoveryClient 注解让该应用注册为Eureka客户端应用，获得服务发现的能力
  */
 @EnableDiscoveryClient
@@ -19,12 +18,12 @@ import org.springframework.web.client.RestTemplate;
 public class SpringCloudSribbonApplication {
 
     /**
-     * @LoadBalanced 开启客户端负载均衡
      * @return
+     * @LoadBalanced 开启客户端负载均衡
      */
     @Bean
     @LoadBalanced
-    RestTemplate restTemplate(){
+    RestTemplate restTemplate() {
         return new RestTemplate();
     }
 

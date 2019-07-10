@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * @Author Mqs
  * @Date 2018/11/19 22:12
- * @Desc
+ * @Desc TODO 测试的时候启动 feign  service  tservice server 这四个服务
  */
 @RestController
 @RequestMapping("/feign")
@@ -22,18 +22,18 @@ public class RefactorConsumerController {
      */
 
     @RequestMapping("/consumer4")
-    public String helloOne(){
+    public String helloOne() {
         return refactorHelloService.hello("HEYAO");
     }
 
     @RequestMapping("/consumer5")
-    public com.eureka.cloud.api.model.User helloTwo(){
+    public com.eureka.cloud.api.model.User helloTwo() {
         com.eureka.cloud.api.model.User heyao = refactorHelloService.hello("HEYAO", 30);
         return heyao;
     }
 
     @RequestMapping("/consumer6")
-    public String helloThree(){
+    public String helloThree() {
         com.eureka.cloud.api.model.User user = new com.eureka.cloud.api.model.User();
         user.setAge(30);
         user.setName("HEYAO");

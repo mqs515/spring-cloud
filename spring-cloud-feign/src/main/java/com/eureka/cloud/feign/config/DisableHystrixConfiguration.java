@@ -14,11 +14,12 @@ import org.springframework.context.annotation.Scope;
 public class DisableHystrixConfiguration {
     /**
      * TODO 为指定的客户端配置Feign.Builder
+     *
      * @return
      */
     @Bean
     @Scope("prototype")// TODO 为指定的客户端配置Feign.Builder
-    public Feign.Builder feignBuilder(){
+    public Feign.Builder feignBuilder() {
         return Feign.builder();
     }
 }

@@ -24,7 +24,7 @@ public class HelloController {
     private DiscoveryClient client;
 
     @RequestMapping("/index")
-    public String index(){
+    public String index() {
         List<String> services = client.getServices();
         services.forEach(s -> {
             List<ServiceInstance> instances = client.getInstances(s);
@@ -41,7 +41,7 @@ public class HelloController {
      */
 
     @RequestMapping("/hello1")
-    public String hello(@RequestParam String name){
+    public String hello(@RequestParam String name) {
         int sleepTime = new Random().nextInt(3000);
         log.info("------------------------sleepTime: " + sleepTime);
         try {
@@ -53,7 +53,7 @@ public class HelloController {
     }
 
     @RequestMapping("/hello2")
-    public User hello(@RequestHeader String name, @RequestHeader Integer age){
+    public User hello(@RequestHeader String name, @RequestHeader Integer age) {
         User user = new User();
         user.setAge(age);
         user.setName("Hello " + name);
@@ -61,7 +61,7 @@ public class HelloController {
     }
 
     @RequestMapping("/hello3")
-    public String hello(@RequestBody User user){
+    public String hello(@RequestBody User user) {
         return "HELLO  " + user.getName() + "  " + user.getAge();
     }
 }
